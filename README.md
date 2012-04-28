@@ -3,7 +3,7 @@
 Do you want to force HTTPs across your Django site? You're in the right place!
 
 
-![Use SSL for all the things!](http://cdn.memegenerator.net/instances/400x/19620744.jpg)
+![Use SSL for all the things!](ssl_all_the_things.jpg)
 
 
 ## Install
