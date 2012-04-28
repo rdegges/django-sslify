@@ -1,0 +1,3 @@
+# Ignore PyPI build stuff:
+dist
+*.egg-info
