@@ -27,10 +27,15 @@ request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
 
-## TODO
+## Notes
 
 This code was taken from [this StackOverflow
 thread](http://stackoverflow.com/questions/8436666/how-to-make-python-on-heroku-https-only).
 
 I've only tested this on Heroku, so if it doesn't work for you, please send a
 pull request and I'll merge.
+
+
+## TODO
+
+- Write unit tests.
