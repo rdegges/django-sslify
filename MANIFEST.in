@@ -1,0 +1,2 @@
+include README.md UNLICENSE
+recursive-exclude sslify *.pyc
