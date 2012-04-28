@@ -1,2 +1,2 @@
-include README.md UNLICENSE
+include README.md ssl_all_the_things.jpg UNLICENSE
 recursive-exclude sslify *.pyc
