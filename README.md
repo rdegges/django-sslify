@@ -43,6 +43,24 @@ article](https://devcenter.heroku.com/articles/ssl-endpoint) which talks about
 using the new SSL endpoint addon (which fucking rocks!).
 
 
-## TODO
+## Tests
 
-- Write unit tests.
+[![Build Status](https://secure.travis-ci.org/rdegges/django-sslify.png?branch=master)](http://travis-ci.org/rdegges/django-sslify)
+
+Want to run the tests? No problem:
+
+``` bash
+$ git clone git://github.com/rdegges/django-sslify.git
+$ cd django-sslify
+$ python setup.py develop
+...
+$ python manage.py test sslify
+
+.
+----------------------------------------------------------------------
+Ran 1 tests in 0.000s
+
+OK
+Creating test database for alias 'default'...
+Destroying test database for alias 'default'...
+```
