@@ -1,14 +1,14 @@
 from os.path import abspath, dirname, join, normpath
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 
 setup(
 
     # Basic package information:
     name = 'django-sslify',
-    version = '0.1',
-    packages = find_packages(),
+    version = '0.2',
+    packages = ('sslify',),
 
     # Packaging options:
     zip_safe = False,
