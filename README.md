@@ -47,7 +47,6 @@ using the new SSL endpoint addon (which fucking rocks!).
 
 [![Build Status](https://secure.travis-ci.org/rdegges/django-sslify.png?branch=master)](http://travis-ci.org/rdegges/django-sslify)
 
-
 Want to run the tests? No problem:
 
 ``` bash
