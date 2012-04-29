@@ -1,4 +1,4 @@
 include README.md ssl_all_the_things.jpg manage.py UNLICENSE
 recursive-exclude sslify *.pyc
 recursive-exclude test_project *.pyc
-recursive-include test_project
+recursive-include test_project *.py
