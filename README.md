@@ -11,6 +11,9 @@ Do you want to force HTTPs across your Django site? You're in the right place!
 To install ``django-sslify``, simply run ``pip install django-sslify`` and
 you'll get the latest version installed automatically.
 
+If you're using Heroku, you should add: `django-sslify>=0.2` to your
+`requirements.txt` file in the root of your project directory.
+
 
 ## Usage
 
