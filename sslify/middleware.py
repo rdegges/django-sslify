@@ -10,7 +10,7 @@ class SSLifyMiddleware(object):
         This will only take effect if ``settings.DEBUG`` is False.
     """
     def process_request(self, request):
-        if not any((settings.DEBUG, request.is_secure(), request.META.get('HTTP_X_FORWARDED_PROTO', '') == 'https')):
+        if not any((settings.DEBUG, request.is_secure()):
             url = request.build_absolute_uri(request.get_full_path())
             secure_url = url.replace('http://', 'https://')
             return HttpResponsePermanentRedirect(secure_url)
