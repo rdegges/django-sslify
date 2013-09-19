@@ -20,5 +20,11 @@ class SSLifyMiddlware(TestCase):
         self.assertIsInstance(request, HttpResponsePermanentRedirect)
         self.assertTrue(request['Location'].startswith('https://'))
 
+    def test_disable_for_tests(self):
+        """If disabled, we get a 404"""
+        with self.settings(SSLIFY_DISABLE=True):
+            request = self.client.get('/woot/')
+            self.assertEqual(404, request.status_code)
+
     def tearDown(self):
         del self.factory
