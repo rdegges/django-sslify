@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core import mail
 from django.http import HttpResponsePermanentRedirect
 
 
@@ -8,8 +9,18 @@ class SSLifyMiddleware(object):
 
     .. note::
         This will only take effect if ``settings.DEBUG`` is False.
+
+    .. note::
+        You can also disable this middleware when testing by setting
+        ``settings.SSLIFY_DISABLE`` to True
     """
     def process_request(self, request):
+        # disabled for test mode?
+        if getattr(settings, 'SSLIFY_DISABLE', False) and \
+                hasattr(mail, 'outbox'):
+            return None
+
+        # proceed as normal
         if not any((settings.DEBUG, request.is_secure())):
             url = request.build_absolute_uri(request.get_full_path())
             secure_url = url.replace('http://', 'https://')
