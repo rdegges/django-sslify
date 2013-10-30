@@ -22,9 +22,21 @@ class SSLifyMiddlware(TestCase):
 
     def test_disable_for_tests(self):
         """If disabled, we get a 404"""
+
         with self.settings(SSLIFY_DISABLE=True):
             request = self.client.get('/woot/')
-            self.assertEqual(404, request.status_code)
+            self.assertEqual(404, request.status_code)  
+
+    def test_exempt_path(self):
+        """If path exempt, dont redirect"""
+        SSLIFY_EXEMPT_PATHS = ['/woot']
+        with self.settings(SSLIFY_EXEMPT_PATHS=SSLIFY_EXEMPT_PATHS):
+            middleware = _SSLifyMiddleware()
+            request = self.factory.get('/woot')
+            request = middleware.process_request(request)
+            self.assertIsNone(request)
+
+      
 
     def tearDown(self):
         del self.factory
