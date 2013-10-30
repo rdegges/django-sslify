@@ -22,6 +22,9 @@ class SSLifyMiddleware(object):
 
         # proceed as normal
         if not any((settings.DEBUG, request.is_secure())):
-            url = request.build_absolute_uri(request.get_full_path())
-            secure_url = url.replace('http://', 'https://')
-            return HttpResponsePermanentRedirect(secure_url)
+            path  = request.path
+            exempt_urls = getattr(settings,'SSLIFY_EXEMPT_PATHS', [])
+            if path not in exempt_urls:
+                url = request.build_absolute_uri(request.get_full_path())
+                secure_url = url.replace('http://', 'https://')
+                return HttpResponsePermanentRedirect(secure_url)
