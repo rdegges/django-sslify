@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.core import mail
 from django.http import HttpResponsePermanentRedirect
 
 
@@ -16,8 +15,7 @@ class SSLifyMiddleware(object):
     """
     def process_request(self, request):
         # disabled for test mode?
-        if getattr(settings, 'SSLIFY_DISABLE', False) and \
-                hasattr(mail, 'outbox'):
+        if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
 
         # proceed as normal
