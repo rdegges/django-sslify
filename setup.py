@@ -10,7 +10,7 @@ setup(
     # Basic package information:
     name = 'django-sslify',
     version = __version__,
- 
+
     packages = ('sslify',),
 
     # Packaging options:
