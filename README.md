@@ -32,6 +32,15 @@ middleware class listed, as this will ensure that if a user makes an unsecure
 request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
+If you're using Heroku, you should also add the following settings to your
+Django settings file:
+
+``` python
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+```
+
+This ensures that Django will be able to detect a secure connection properly.
+
 
 ### Disabling SSLify
 
