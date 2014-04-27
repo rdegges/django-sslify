@@ -35,9 +35,17 @@ processing happens.
 
 ### Disabling SSLify
 
-You may wish to disable SSLify in certain environments (locally, or in a test
-suite, for instance).  This can be accomplished by setting
-`SSLIFY_DISABLE = True` in your settings file for the appropriate environment.
+If you'd like to disable SSLify in certain environments (for local development,
+or running unit tests), the best way to do it is to modify your settings file
+and do something like this:
+
+``` python
+# Disable SSLify if DEBUG is enabled.
+if DEBUG:
+    SSLIFY_DISABLE = True
+```
+
+You can disable SSLify at any time by setting `SSLIFY_DISABLE = True`.
 
 
 ## Notes
