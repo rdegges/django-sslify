@@ -50,7 +50,7 @@ pull request and I'll merge.
 
 If you're using Heroku, and have no idea how to setup SSL, read [this great
 article](https://devcenter.heroku.com/articles/ssl-endpoint) which talks about
-using the new SSL endpoint addon (which fucking rocks!).
+using the new SSL endpoint addon (*which fucking rocks!*).
 
 
 ## Tests
