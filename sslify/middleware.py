@@ -18,7 +18,7 @@ class SSLifyMiddleware(object):
         if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
 
-        # proceed as normal
+        # If we get here, proceed as normal.
         if not any((settings.DEBUG, request.is_secure())):
             url = request.build_absolute_uri(request.get_full_path())
             secure_url = url.replace('http://', 'https://')
