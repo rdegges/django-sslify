@@ -33,7 +33,7 @@ request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
 
-#### Disabling SSLify
+### Disabling SSLify
 
 You may wish to disable SSLify in certain environments (locally, or in a test
 suite, for instance).  This can be accomplished by setting
