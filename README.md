@@ -32,8 +32,13 @@ middleware class listed, as this will ensure that if a user makes an unsecure
 request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
+
 #### Disabling SSLify
-You may wish to disable SSLify in certain environments (ie. local, test suite). This can be accomplished by setting `SSLIFY_DISABLE = True`
+
+You may wish to disable SSLify in certain environments (locally, or in a test
+suite, for instance).  This can be accomplished by setting
+`SSLIFY_DISABLE = True` in your settings file for the appropriate environment.
+
 
 ## Notes
 
