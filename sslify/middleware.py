@@ -14,7 +14,7 @@ class SSLifyMiddleware(object):
         ``settings.SSLIFY_DISABLE`` to True.
     """
     def process_request(self, request):
-        # disabled for test mode?
+        # If the user has explicitly disabled SSLify, do nothing.
         if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
 
