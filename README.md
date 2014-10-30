@@ -46,15 +46,13 @@ This ensures that Django will be able to detect a secure connection properly.
 
 If you'd like to disable SSLify in certain environments (for local development,
 or running unit tests), the best way to do it is to modify your settings file
-and do something like this:
+and add the following:
 
 ``` python
-# Disable SSLify if DEBUG is enabled.
-if DEBUG:
-    SSLIFY_DISABLE = True
+SSLIFY_DISABLE = True
 ```
 
-You can disable SSLify at any time by setting `SSLIFY_DISABLE = True`.
+Note that SSLify is automatically disabled if DEBUG is True.
 
 
 ## Notes
