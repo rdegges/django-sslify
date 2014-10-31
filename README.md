@@ -28,7 +28,7 @@ MIDDLEWARE_CLASSES = (
 ```
 
 **NOTE**: Make sure `sslify.middleware.SSLifyMiddleware` is the first
-middleware class listed, as this will ensure that if a user makes an unsecure
+middleware class listed, as this will ensure that if a user makes an insecure
 request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
