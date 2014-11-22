@@ -15,11 +15,11 @@ class SSLifyMiddleware(object):
     """
     def process_request(self, request):
         # If the user has explicitly disabled SSLify, do nothing.
-        if getattr(settings, 'SSLIFY_DISABLE', False):
+        if getattr(settings, 'SSLIFY_DISABLE', settings.DEBUG):
             return None
 
         # If we get here, proceed as normal.
-        if not any((settings.DEBUG, request.is_secure())):
+        if not request.is_secure():
             url = request.build_absolute_uri(request.get_full_path())
             secure_url = url.replace('http://', 'https://')
             return HttpResponsePermanentRedirect(secure_url)
