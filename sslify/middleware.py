@@ -1,6 +1,7 @@
+from urlparse import urlsplit, urlunsplit
+
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
-import urlparse
 
 
 class SSLifyMiddleware(object):
@@ -22,9 +23,9 @@ class SSLifyMiddleware(object):
         # If we get here, proceed as normal.
         if not request.is_secure():
             url = request.build_absolute_uri(request.get_full_path())
-            url_split = urlparse.urlsplit(url)
+            url_split = urlsplit(url)
             scheme = 'https' if url_split.scheme == 'http' else url_split.scheme
             ssl_port = getattr(settings, 'SSL_PORT', 443)
             url_secure_split = (scheme, "%s:%d" % (url_split.hostname or '', ssl_port)) + url_split[2:]
-            secure_url = urlparse.urlunsplit(url_secure_split)
+            secure_url = urlunsplit(url_secure_split)
             return HttpResponsePermanentRedirect(secure_url)
