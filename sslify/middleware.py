@@ -1,4 +1,10 @@
-from urlparse import urlsplit, urlunsplit
+try:
+    # Python 2.x
+    from urlparse import urlsplit, urlunsplit
+except:
+    # Python 3.x
+    from urllib import parse as urlsplit
+    from urllib import parse as urlunsplit
 
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
