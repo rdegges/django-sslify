@@ -6,7 +6,7 @@ Do you want to force HTTPs across your Django site? You're in the right place!
 ![django-sslify downloads](http://img.shields.io/pypi/dm/django-sslify.svg)
 ![django-sslify build](http://img.shields.io/travis/rdegges/django-sslify.svg)
 
-![Use SSL for all the things!](https://github.com/rdegges/django-sslify/raw/master/assets/ssl_all_the_things.jpg)
+![guardian sketch](https://github.com/rdegges/django-sslify/raw/master/assets/guardian-sketch.png)
 
 
 ## Install
