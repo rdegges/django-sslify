@@ -147,3 +147,20 @@ To run the test suite, you can use the following commands:
     $ cd django-sslify
     $ python setup.py develop
     $ python manage.py test sslify
+
+
+Change Log
+----------
+
+All library changes, in descending order.
+
+
+Version 0.2.4
+*************
+
+**Released on November 23, 2014.**
+
+- Adding the ability to specify a custom SSL port.
+- Totally revamping docs.
+- Changing project logo / mascot thingy ^^
+- Adding new tests for custom SSL ports.
