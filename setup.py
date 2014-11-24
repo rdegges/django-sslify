@@ -11,7 +11,7 @@ setup(
     name = 'django-sslify',
     version = __version__,
 
-    packages = ('sslify',),
+    packages = ['sslify'],
 
     # Packaging options:
     zip_safe = False,
@@ -22,7 +22,7 @@ setup(
 
     # Metadata for PyPI:
     author = 'Randall Degges',
-    author_email = 'rdegges@gmail.com',
+    author_email = 'r@rdegges.com',
     license = 'UNLICENSE',
     url = 'https://github.com/rdegges/django-sslify',
     keywords = 'django ssl https middleware',
@@ -44,7 +44,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    long_description = open(normpath(join(dirname(abspath(__file__)),
-        'README.md'))).read()
+    long_description = open(normpath(join(dirname(abspath(__file__)), 'README.md'))).read(),
 
 )
