@@ -27,7 +27,7 @@ page of their Django site, API, web app, or whatever you're building.  Securing
 your site shouldn't be hard.
 
 
-## Install
+## Installation
 
 To install `django-sslify`, simply run `pip install django-sslify` and
 you'll get the latest version installed automatically.
