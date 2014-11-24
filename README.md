@@ -29,11 +29,23 @@ your site shouldn't be hard.
 
 ## Installation
 
-To install `django-sslify`, simply run `pip install django-sslify` and
-you'll get the latest version installed automatically.
+To install `django-sslify`, simply run:
 
-If you're using Heroku, you should add: `django-sslify>=0.2` to your
-`requirements.txt` file in the root of your project directory.
+```console
+$ pip install django-sslify
+```
+
+This will install the latest version of the library automatically.
+
+If you're using [Heroku](https://www.heroku.com/), you should add
+`django-sslify>=0.2` to your `requirements.txt` file:
+
+```console
+$ echo 'django-sslify>=0.2.0' >> requirements.txt
+```
+
+Once you've done this, the next time you push your code to Heroku this library
+will be installed for you automatically.
 
 
 ## Usage
