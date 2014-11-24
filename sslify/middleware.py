@@ -1,3 +1,6 @@
+"""Django middlewares."""
+
+
 try:
     # Python 2.x
     from urlparse import urlsplit, urlunsplit
@@ -34,4 +37,5 @@ class SSLifyMiddleware(object):
             ssl_port = getattr(settings, 'SSL_PORT', 443)
             url_secure_split = (scheme, "%s:%d" % (url_split.hostname or '', ssl_port)) + url_split[2:]
             secure_url = urlunsplit(url_secure_split)
+
             return HttpResponsePermanentRedirect(secure_url)
