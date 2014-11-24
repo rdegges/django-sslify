@@ -9,6 +9,14 @@ Do you want to force HTTPs across your Django site? You're in the right place!
 ![guardian sketch](https://github.com/rdegges/django-sslify/raw/master/assets/guardian-sketch.png)
 
 
+## Meta
+
+- Author: Randall Degges
+- Email: r@rdegges.com
+- Site: http://www.rdegges.com
+- Status: maintained, active
+
+
 ## Install
 
 To install `django-sslify`, simply run `pip install django-sslify` and
