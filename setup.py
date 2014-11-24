@@ -1,8 +1,6 @@
 """Python packaging information."""
 
 
-from os.path import abspath, dirname, join, normpath
-
 from setuptools import setup
 
 from sslify import __version__
@@ -47,6 +45,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    long_description = open(normpath(join(dirname(abspath(__file__)), 'README.md'))).read(),
+    long_description = open('README.rst', 'rb').read(),
 
 )
