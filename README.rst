@@ -93,6 +93,18 @@ Django settings file:
 This ensures that Django will be able to detect a secure connection properly.
 
 
+Using a Custom SSL Port
+***********************
+
+If your site is running on a non-standard SSL port, you can change
+``django-sslify``'s default redirection behavior by setting a special variable
+in your ``settings.py`` file:
+
+.. code-block:: python
+
+    SSLIFY_PORT = 999
+
+
 Disabling SSLify
 ----------------
 
