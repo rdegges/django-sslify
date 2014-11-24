@@ -33,7 +33,7 @@ class SSLifyMiddlwareTest(TestCase):
 
     def test_custom_ssl_port(self):
         custom_port = 8443
-        with self.settings(SSL_PORT=custom_port):
+        with self.settings(SSLIFY_PORT=custom_port):
             request = self.factory.get('/woot/')
             middleware = SSLifyMiddleware()
             request = middleware.process_request(request)
