@@ -104,24 +104,27 @@ If you're using Heroku, and have no idea how to setup SSL, read
 talks about using the new SSL endpoint addon (*which totally rocks!*).
 
 
-## Tests
+## Contributing
 
-[![Build Status](https://secure.travis-ci.org/rdegges/django-sslify.png?branch=master)](http://travis-ci.org/rdegges/django-sslify)
+This project is only possible due to the amazing contributors who work on it!
 
-Want to run the tests? No problem:
+If you'd like to improve this library, please send me a pull request! I'm happy
+to review and merge pull requests.
 
-``` bash
-$ git clone git://github.com/rdegges/django-sslify.git
+The standard contribution workflow should look something like this:
+
+- Fork this project on Github.
+- Make some changes in the master branch (*this project is simple, so no need to
+  complicate things*).
+- Send a pull request when ready.
+
+Also, if you're making changes, please write tests for your changes -- this
+project has a full test suite you can easily modify / test.
+
+To run the test suite, you can use the following commands:
+
+```console
 $ cd django-sslify
 $ python setup.py develop
-...
 $ python manage.py test sslify
-
-.
-----------------------------------------------------------------------
-Ran 1 tests in 0.000s
-
-OK
-Creating test database for alias 'default'...
-Destroying test database for alias 'default'...
 ```
