@@ -117,7 +117,7 @@ and add the following:
     SSLIFY_DISABLE = True
 
 .. note::
-    `django-sslify` is automatically disabled if `settings.DEBUG` is `True`.
+    ``django-sslify`` is automatically disabled if ``settings.DEBUG`` is ``True``.
 
 
 Notes
