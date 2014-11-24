@@ -3,15 +3,15 @@ django-sslify
 
 Do you want to force HTTPs across your Django site? You're in the right place!
 
-.. image:: http://img.shields.io/pypi/v/django-sslify.svg
+.. image:: https://img.shields.io/pypi/v/django-sslify.svg
     :alt: django-sslify Release
     :target: https://pypi.python.org/pypi/django-sslify
 
-.. image:: http://img.shields.io/pypi/dm/django-sslify.svg
+.. image:: https://img.shields.io/pypi/dm/django-sslify.svg
     :alt: django-sslify Downloads
     :target: https://pypi.python.org/pypi/django-sslify
 
-.. image:: http://img.shields.io/travis/rdegges/django-sslify.svg
+.. image:: https://img.shields.io/travis/rdegges/django-sslify.svg
     :alt: django-sslify Build
     :target: https://travis-ci.org/rdegges/django-sslify
 
