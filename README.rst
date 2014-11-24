@@ -66,7 +66,9 @@ Usage
 
 To use this library, and force SSL across your Django site, all you need to do
 is modify your ``settings.py`` file, and prepend
-``sslify.middleware.SSLifyMiddleware`` to your ``MIDDLEWARE_CLASSES`` setting::
+``sslify.middleware.SSLifyMiddleware`` to your ``MIDDLEWARE_CLASSES`` setting:
+
+.. code-block:: python
 
     # settings.py
 
@@ -82,7 +84,9 @@ is modify your ``settings.py`` file, and prepend
     processing happens.
 
 If you're using Heroku, you should also add the following settings to your
-Django settings file::
+Django settings file:
+
+.. code-block:: python
 
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -94,7 +98,9 @@ Disabling SSLify
 
 If you'd like to disable SSLify in certain environments (*for local development,
 or running unit tests*), the best way to do it is to modify your settings file
-and add the following::
+and add the following:
+
+.. code-block:: python
 
     SSLIFY_DISABLE = True
 
@@ -134,7 +140,9 @@ The standard contribution workflow should look something like this:
 Also, if you're making changes, please write tests for your changes -- this
 project has a full test suite you can easily modify / test.
 
-To run the test suite, you can use the following commands::
+To run the test suite, you can use the following commands:
+
+.. code-block:: console
 
     $ cd django-sslify
     $ python setup.py develop
