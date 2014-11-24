@@ -42,7 +42,9 @@ your site shouldn't be hard.
 Installation
 ------------
 
-To install ``django-sslify``, simply run::
+To install ``django-sslify``, simply run:
+
+.. code-block:: console
 
     $ pip install django-sslify
 
