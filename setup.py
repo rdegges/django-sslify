@@ -1,3 +1,6 @@
+"""Python packaging information."""
+
+
 from os.path import abspath, dirname, join, normpath
 
 from setuptools import setup
