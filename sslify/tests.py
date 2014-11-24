@@ -1,3 +1,6 @@
+"""Tests."""
+
+
 try:
     # Python 2.x
     from urlparse import urlsplit
@@ -9,10 +12,10 @@ from django.http import HttpResponsePermanentRedirect
 from django.test import TestCase
 from django.test.client import RequestFactory
 
-from sslify.middleware import SSLifyMiddleware as _SSLifyMiddleware
+from sslify.middleware import SSLifyMiddleware
 
 
-class SSLifyMiddlware(TestCase):
+class SSLifyMiddlwareTest(TestCase):
 
     def setUp(self):
         self.factory = RequestFactory()
@@ -21,7 +24,7 @@ class SSLifyMiddlware(TestCase):
         request = self.factory.get('/woot/')
         self.assertTrue(request.build_absolute_uri().startswith('http://'))
 
-        middleware = _SSLifyMiddleware()
+        middleware = SSLifyMiddleware()
         request = middleware.process_request(request)
 
         self.assertIsInstance(request, HttpResponsePermanentRedirect)
@@ -32,13 +35,12 @@ class SSLifyMiddlware(TestCase):
         custom_port = 8443
         with self.settings(SSL_PORT=custom_port):
             request = self.factory.get('/woot/')
-            middleware = _SSLifyMiddleware()
+            middleware = SSLifyMiddleware()
             request = middleware.process_request(request)
 
             self.assertEqual(custom_port, urlsplit(request['Location']).port)
 
     def test_disable_for_tests(self):
-        """If disabled, we get a 404"""
         with self.settings(SSLIFY_DISABLE=True):
             request = self.client.get('/woot/')
             self.assertEqual(404, request.status_code)
