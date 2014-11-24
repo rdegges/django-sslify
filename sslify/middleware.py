@@ -1,7 +1,7 @@
 try:
     # Python 2.x
     from urlparse import urlsplit, urlunsplit
-except:
+except ImportError:
     # Python 3.x
     from urllib.parse import urlsplit
     from urllib.parse import urlunsplit
