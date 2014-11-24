@@ -1,5 +1,5 @@
 include README.rst manage.py UNLICENSE
 recursive-exclude sslify *.pyc
-recursive-exclude assets *.jpg
 recursive-exclude test_project *.pyc
 recursive-include test_project *.py
+recursive-include assets *.png
