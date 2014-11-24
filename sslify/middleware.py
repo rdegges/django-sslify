@@ -3,8 +3,8 @@ try:
     from urlparse import urlsplit, urlunsplit
 except:
     # Python 3.x
-    from urllib import parse as urlsplit
-    from urllib import parse as urlunsplit
+    from urllib.parse import urlsplit
+    from urllib.parse import urlunsplit
 
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
