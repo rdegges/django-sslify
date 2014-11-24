@@ -51,7 +51,9 @@ To install ``django-sslify``, simply run:
 This will install the latest version of the library automatically.
 
 If you're using `Heroku <https://www.heroku.com/>`_, you should add
-``django-sslify>=0.2`` to your ``requirements.txt`` file::
+``django-sslify>=0.2`` to your ``requirements.txt`` file:
+
+.. code-block:: console
 
     $ echo 'django-sslify>=0.2.0' >> requirements.txt
 
