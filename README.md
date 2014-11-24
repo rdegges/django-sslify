@@ -50,10 +50,13 @@ will be installed for you automatically.
 
 ## Usage
 
-Modify your Django `settings.py` file, and prepend
+To use this library, and force SSL across your Django site, all you need to do
+is modify your `settings.py` file, and prepend
 `sslify.middleware.SSLifyMiddleware` to your `MIDDLEWARE_CLASSES` setting:
 
-``` python
+```python
+# settings.py
+
 MIDDLEWARE_CLASSES = (
     'sslify.middleware.SSLifyMiddleware',
     # ...
@@ -62,30 +65,30 @@ MIDDLEWARE_CLASSES = (
 
 **NOTE**: Make sure `sslify.middleware.SSLifyMiddleware` is the first
 middleware class listed, as this will ensure that if a user makes an insecure
-request (over HTTP), they will be redirected to HTTPs before any actual
+request (*over HTTP*), they will be redirected to HTTPs before any actual
 processing happens.
 
 If you're using Heroku, you should also add the following settings to your
 Django settings file:
 
-``` python
+```python
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ```
 
 This ensures that Django will be able to detect a secure connection properly.
 
 
-### Disabling SSLify
+## Disabling SSLify
 
-If you'd like to disable SSLify in certain environments (for local development,
-or running unit tests), the best way to do it is to modify your settings file
+If you'd like to disable SSLify in certain environments (*for local development,
+or running unit tests*), the best way to do it is to modify your settings file
 and add the following:
 
 ``` python
 SSLIFY_DISABLE = True
 ```
 
-Note that SSLify is automatically disabled if DEBUG is True.
+**NOTE**: `django-sslify` is automatically disabled if `settings.DEBUG` is `True`.
 
 
 ## Notes
