@@ -93,15 +93,15 @@ SSLIFY_DISABLE = True
 
 ## Notes
 
-This code was taken from
+This code was initially taken from
 [this StackOverflow thread](http://stackoverflow.com/questions/8436666/how-to-make-python-on-heroku-https-only).
 
-I've only tested this on Heroku, so if it doesn't work for you, please send a
-pull request and I'll merge.
+This code has been adopted over the years to work on Heroku, and non-Heroku
+platforms.
 
 If you're using Heroku, and have no idea how to setup SSL, read
 [this great article](https://devcenter.heroku.com/articles/ssl-endpoint) which
-talks about using the new SSL endpoint addon (*which fucking rocks!*).
+talks about using the new SSL endpoint addon (*which totally rocks!*).
 
 
 ## Tests
