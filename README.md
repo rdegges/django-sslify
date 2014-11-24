@@ -17,6 +17,16 @@ Do you want to force HTTPs across your Django site? You're in the right place!
 - Status: maintained, active
 
 
+## Purpose
+
+Enabling SSL on your Django site should be easy, easy as in *one-line-of-code
+easy*.  That's why I wrote `django-sslify`!
+
+The goal of this project is to make it easy for people to force HTTPS on every
+page of their Django site, API, web app, or whatever you're building.  Securing
+your site shouldn't be hard.
+
+
 ## Install
 
 To install `django-sslify`, simply run `pip install django-sslify` and
