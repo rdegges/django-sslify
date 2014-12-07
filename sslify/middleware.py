@@ -46,10 +46,12 @@ class SSLifyMiddleware(object):
 
             shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
 
-            if shorten_to_root_domain:
-                url_split.netloc = url_split.netloc.replace('www.', '')
+            hostname = url_split.hostname
 
-            url_secure_split = (scheme, "%s:%d" % (url_split.hostname or '', ssl_port)) + url_split[2:]
+            if shorten_to_root_domain:
+                hostname = hostname.replace('www.', '')
+
+            url_secure_split = (scheme, "%s:%d" % (hostname or '', ssl_port)) + url_split[2:]
             secure_url = urlunsplit(url_secure_split)
 
             return HttpResponsePermanentRedirect(secure_url)
