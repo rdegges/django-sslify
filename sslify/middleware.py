@@ -29,6 +29,12 @@ class SSLifyMiddleware(object):
         if getattr(settings, 'SSLIFY_DISABLE', settings.DEBUG):
             return None
 
+        # Evaluate callables that can disable SSL for the current request
+        per_request_disables = getattr(settings, 'SSLIFY_DISABLE_FOR_REQUEST', [])
+        for should_disable in per_request_disables:
+            if should_disable(request):
+                return None
+
         # If we get here, proceed as normal.
         if not request.is_secure():
             url = request.build_absolute_uri(request.get_full_path())
