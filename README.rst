@@ -119,11 +119,10 @@ and add the following:
 .. note::
     ``django-sslify`` is automatically disabled if ``settings.DEBUG`` is ``True``.
 
-
-You can also disable SSLify for certain requests only (useful for exposing
-HTTP-only web hook URLs, etc) by adding a callable with a single request
-parameter to the SSLIFY_DISABLE_FOR_REQUEST list. Returning True from your
-callable will disable SSL redirects.
+You can also disable SSLify for certain requests only (*useful for exposing
+HTTP-only web hook URLs, etc*) by adding a callable with a single request
+parameter to the ``SSLIFY_DISABLE_FOR_REQUEST`` list.  Returning ``True`` from
+your callable will disable SSL redirects.
 
 .. code-block:: python
 
