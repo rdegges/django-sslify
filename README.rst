@@ -178,6 +178,17 @@ Change Log
 All library changes, in descending order.
 
 
+Version 0.2.5
+*************
+
+**Released December 28, 2014.**
+
+- Adding in new ``SSLIFY_DISABLE_FOR_REQUEST`` setting which allows a user to
+  specify functions that can choose to reject SSL -- this is useful for
+  situations where you might want to force SSL site-wide EXCEPT in a few
+  circumstances (*webhooks that don't support SSL, for instance*).
+
+
 Version 0.2.4
 *************
 
