@@ -10,4 +10,3 @@ install:
   - python setup.py develop
 script:
   - python manage.py test sslify
-  - cd docs && make html
