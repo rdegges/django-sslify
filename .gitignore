@@ -1,3 +1,6 @@
 # Ignore PyPI build stuff:
 dist
 *.egg-info
+
+# Ignore Sphinx build files:
+docs/build
