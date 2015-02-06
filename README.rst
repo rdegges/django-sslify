@@ -145,6 +145,22 @@ If you're using Heroku, and have no idea how to setup SSL, read
 which talks about using the new SSL endpoint addon (*which totally rocks!*).
 
 
+NGINX + Infinite Redirect
+-------------------------
+
+If you're running your Django app behind an Nginx load balancer, and are seeing
+infinite redirects, the solution is to add the following line:
+
+.. code-block:: text
+
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+To your ``nginx.conf`` file, inside of the relevant ``location`` blocks.  This
+`Stack Overflow thread
+<http://stackoverflow.com/questions/23121800/nginx-redirect-loop-with-ssl>`_
+might also be useful.
+
+
 Contributing
 ------------
 
