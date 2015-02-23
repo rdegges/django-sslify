@@ -35,12 +35,15 @@ class SSLifyMiddleware(object):
             if should_disable(request):
                 return None
 
-        shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
+        try:
+            shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
 
-        hostname = url_split.hostname
+            hostname = url_split.hostname
 
-        if shorten_to_root_domain:
-            hostname = hostname.replace('www.', '')
+            if shorten_to_root_domain:
+                hostname = hostname.replace('www.', '')
+        except Exception, e:
+                print e.message
 
         # If we get here, proceed as normal.
         if not request.is_secure():
