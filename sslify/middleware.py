@@ -35,6 +35,10 @@ class SSLifyMiddleware(object):
             if should_disable(request):
                 return None
 
+        shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
+
+        hostname = url_split.hostname
+
         if shorten_to_root_domain:
             hostname = hostname.replace('www.', '')
 
@@ -47,12 +51,6 @@ class SSLifyMiddleware(object):
                 scheme = 'https' if url_split.scheme == 'http' else url_split.scheme
 
                 ssl_port = getattr(settings, 'SSLIFY_PORT', 443)
-
-                shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
-
-                hostname = url_split.hostname
-
-
 
                 url_secure_split = (scheme, "%s:%d" % (hostname or '', ssl_port)) + url_split[2:]
                 secure_url = urlunsplit(url_secure_split)
