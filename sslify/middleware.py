@@ -35,6 +35,9 @@ class SSLifyMiddleware(object):
             if should_disable(request):
                 return None
 
+        if shorten_to_root_domain:
+            hostname = hostname.replace('www.', '')
+
         # If we get here, proceed as normal.
         if not request.is_secure():
             try:
@@ -49,8 +52,7 @@ class SSLifyMiddleware(object):
 
                 hostname = url_split.hostname
 
-                if shorten_to_root_domain:
-                    hostname = hostname.replace('www.', '')
+
 
                 url_secure_split = (scheme, "%s:%d" % (hostname or '', ssl_port)) + url_split[2:]
                 secure_url = urlunsplit(url_secure_split)
