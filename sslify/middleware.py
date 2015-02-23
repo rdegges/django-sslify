@@ -36,12 +36,15 @@ class SSLifyMiddleware(object):
                 return None
 
         try:
+            url = request.build_absolute_uri(request.get_full_path())
+
             shorten_to_root_domain = getattr(settings, 'SSLIFY_SHORTEN_TO_ROOT_DOMAIN', False)
 
-            hostname = url_split.hostname
-
             if shorten_to_root_domain:
-                hostname = hostname.replace('www.', '')
+                url = url.replace('www.', '')
+
+            return HttpResponsePermanentRedirect(url)
+
         except Exception, e:
                 print e.message
 
