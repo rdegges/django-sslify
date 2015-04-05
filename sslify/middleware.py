@@ -18,15 +18,12 @@ class SSLifyMiddleware(object):
     force a redirect to HTTPs.
 
     .. note::
-        This will only take effect if ``settings.DEBUG`` is False.
-
-    .. note::
         You can also disable this middleware when testing by setting
         ``settings.SSLIFY_DISABLE`` to True.
     """
     def process_request(self, request):
         # If the user has explicitly disabled SSLify, do nothing.
-        if getattr(settings, 'SSLIFY_DISABLE', settings.DEBUG):
+        if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
 
         # Evaluate callables that can disable SSL for the current request
