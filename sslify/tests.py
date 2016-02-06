@@ -15,7 +15,7 @@ from django.test.client import RequestFactory
 from sslify.middleware import SSLifyMiddleware
 
 
-class SSLifyMiddlwareTest(TestCase):
+class SSLifyMiddlewareTest(TestCase):
 
     def setUp(self):
         self.factory = RequestFactory()
@@ -24,7 +24,7 @@ class SSLifyMiddlwareTest(TestCase):
         request = self.factory.get('/woot/')
         self.assertTrue(request.build_absolute_uri().startswith('http://'))
 
-        middleware = SSLifyMiddleware()
+        middleware = SSLifyMiddleware
         result = middleware.process_request(request)
 
         self.assert_https_redirect(result)
@@ -34,7 +34,7 @@ class SSLifyMiddlwareTest(TestCase):
         custom_port = 8443
         with self.settings(SSLIFY_PORT=custom_port):
             request = self.factory.get('/woot/')
-            middleware = SSLifyMiddleware()
+            middleware = SSLifyMiddleware
             request = middleware.process_request(request)
 
             self.assertEqual(custom_port, urlsplit(request['Location']).port)
@@ -49,7 +49,7 @@ class SSLifyMiddlwareTest(TestCase):
             return request.get_full_path().startswith('/disabled')
 
         with self.settings(SSLIFY_DISABLE_FOR_REQUEST=[sslify_disable]):
-            middleware = SSLifyMiddleware()
+            middleware = SSLifyMiddleware
             request = self.factory.get('/disabled/')
             request = middleware.process_request(request)
             self.assertIsNone(request)

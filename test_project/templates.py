@@ -1,4 +1,11 @@
-from django.template.base import TemplateDoesNotExist
+
+try:
+    # Django == 1.9
+    from django.template import TemplateDoesNotExist
+except:
+    # Django >= 1.8
+    from django.template.base import TemplateDoesNotExist
+
 try:
     # Django >= 1.8
     # https://docs.djangoproject.com/en/1.8/releases/1.8/#django-template-loader-baseloader
