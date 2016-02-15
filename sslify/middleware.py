@@ -21,7 +21,8 @@ class SSLifyMiddleware(object):
         You can also disable this middleware when testing by setting
         ``settings.SSLIFY_DISABLE`` to True.
     """
-    def process_request(self, request):
+    @staticmethod
+    def process_request(request):
         # If the user has explicitly disabled SSLify, do nothing.
         if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
