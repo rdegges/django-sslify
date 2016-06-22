@@ -38,6 +38,27 @@ The goal of this project is to make it easy for people to force HTTPS on every
 page of their Django site, API, web app, or whatever you're building.  Securing
 your site shouldn't be hard.
 
+Using Django 1.8 or later?
+--------------------------
+
+This package was written before Django 1.8. If you are using Django 1.8 or later, you do not need this library in order to force HTTPS. Instead, you can just change your ``settings.py`` file to include ``SECURE_SSL_REDIRECT``.
+
+.. code-block:: python
+
+    # in settings.py
+    SECURE_SSL_REDIRECT = True
+
+If you are using Heroku, you may need to add ``SECURE_PROXY_SSL_HEADER`` as well.
+
+.. code-block:: python
+
+    # in settings.py
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+Django's documentation includes more details about [security settings for HTTPS](https://docs.djangoproject.com/en/dev/topics/security/#ssl-https).
+
+If you are using an older version of Django (1.7 or earlier), then this package is for you.
 
 Installation
 ------------
