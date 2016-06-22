@@ -56,7 +56,7 @@ If you are using Heroku, you may need to add ``SECURE_PROXY_SSL_HEADER`` as well
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-Django's documentation includes more details about [security settings for HTTPS](https://docs.djangoproject.com/en/dev/topics/security/#ssl-https).
+Django's documentation includes more details about `security settings for HTTPS<https://docs.djangoproject.com/en/dev/topics/security/#ssl-https>`.
 
 If you are using an older version of Django (1.7 or earlier), then this package is for you.
 
