@@ -12,8 +12,28 @@ except ImportError:
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 
+try:
+    # Django 1.10
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:
+    # Django <1.10
+    class MiddlewareMixin(object):
+        def __init__(self, get_response=None):
+            self.get_response = get_response
+            super(MiddlewareMixin, self).__init__()
 
-class SSLifyMiddleware(object):
+        def __call__(self, request):
+            response = None
+            if hasattr(self, 'process_request'):
+                response = self.process_request(request)
+            if not response:
+                response = self.get_response(request)
+            if hasattr(self, 'process_response'):
+                response = self.process_response(request, response)
+            return response
+
+
+class SSLifyMiddleware(MiddlewareMixin):
     """Force all requests to use HTTPs. If we get an HTTP request, we'll just
     force a redirect to HTTPs.
 
