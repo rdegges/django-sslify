@@ -212,6 +212,15 @@ Change Log
 All library changes, in descending order.
 
 
+Version 0.2.8
+*************
+
+**Released January 15, 2018.**
+
+- Adding Django 1.10 compatibility.
+- Fixing markup.
+- Updating Travis CI for 1.9.
+
 Version 0.2.5
 *************
 
