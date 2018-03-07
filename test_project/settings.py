@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django import VERSION
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -21,13 +22,6 @@ SECRET_KEY = 'df^bdzeh^h@pq)0+nj*bvwm67oew$pr6ubmzw$s%b#ch)$g=8h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = True
-
-TEMPLATE_LOADERS = (
-    'test_project.templates.TestLoader',
-)
-
 
 ALLOWED_HOSTS = []
 
@@ -44,7 +38,8 @@ INSTALLED_APPS = (
     'sslify',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,6 +47,25 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+if VERSION < (1, 10):
+    MIDDLEWARE_CLASSES = MIDDLEWARE
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 ROOT_URLCONF = 'test_project.urls'
 
