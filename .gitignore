@@ -4,3 +4,9 @@ dist
 
 # Ignore Sphinx build files:
 docs/build
+
+# Ignore tox files
+/.tox/
+
+# Ignore python cache files
+*.pyc
