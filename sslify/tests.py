@@ -1,17 +1,9 @@
 """Tests."""
-
-
-try:
-    # Python 2.x
-    from urlparse import urlsplit
-except ImportError:
-    # Python 3.x
-    from urllib.parse import urlsplit
-
 from django.http import HttpResponsePermanentRedirect
 from django.test import TestCase
 from django.test.client import RequestFactory
 
+from sslify.compat import urlsplit
 from sslify.middleware import SSLifyMiddleware
 
 
@@ -57,6 +49,15 @@ class SSLifyMiddlewareTest(TestCase):
             request = self.factory.get('/enabled/')
             result = middleware.process_request(request)
             self.assert_https_redirect(result)
+
+    def test_with_custom_domain_redirection(self):
+        custom_domain = 'my-domain.com'
+        with self.settings(SSLIFY_DOMAIN=custom_domain):
+            request = self.factory.get('/woot-woot-pamela-anderson/')
+            middleware = SSLifyMiddleware
+            request = middleware.process_request(request)
+
+            self.assertEqual(custom_domain, urlsplit(request['Location']).hostname)
 
     def assert_https_redirect(self, result):
         self.assertIsInstance(result, HttpResponsePermanentRedirect)

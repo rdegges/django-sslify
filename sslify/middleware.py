@@ -1,36 +1,8 @@
 """Django middlewares."""
-
-
-try:
-    # Python 2.x
-    from urlparse import urlsplit, urlunsplit
-except ImportError:
-    # Python 3.x
-    from urllib.parse import urlsplit
-    from urllib.parse import urlunsplit
-
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 
-try:
-    # Django 1.10
-    from django.utils.deprecation import MiddlewareMixin
-except ImportError:
-    # Django <1.10
-    class MiddlewareMixin(object):
-        def __init__(self, get_response=None):
-            self.get_response = get_response
-            super(MiddlewareMixin, self).__init__()
-
-        def __call__(self, request):
-            response = None
-            if hasattr(self, 'process_request'):
-                response = self.process_request(request)
-            if not response:
-                response = self.get_response(request)
-            if hasattr(self, 'process_response'):
-                response = self.process_response(request, response)
-            return response
+from sslify.compat import MiddlewareMixin, urlsplit, urlunsplit
 
 
 class SSLifyMiddleware(MiddlewareMixin):
@@ -59,7 +31,8 @@ class SSLifyMiddleware(MiddlewareMixin):
             url_split = urlsplit(url)
             scheme = 'https' if url_split.scheme == 'http' else url_split.scheme
             ssl_port = getattr(settings, 'SSLIFY_PORT', 443)
-            url_secure_split = (scheme, "%s:%d" % (url_split.hostname or '', ssl_port)) + url_split[2:]
+            ssl_domain = getattr(settings, 'SSLIFY_DOMAIN', url_split.hostname)
+            url_secure_split = (scheme, "%s:%d" % (ssl_domain or '', ssl_port)) + url_split[2:]
             secure_url = urlunsplit(url_secure_split)
 
             return HttpResponsePermanentRedirect(secure_url)

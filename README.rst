@@ -126,6 +126,19 @@ in your ``settings.py`` file:
     SSLIFY_PORT = 999
 
 
+Using a Custom domain to redirect
+*********************************
+
+Lets say your Django application lives behind load balancer and needs to redirect to
+different domain, then ``django-sslify``'s default redirection domain can be altered
+in your ``settings.py`` file:
+
+.. code-block:: python
+
+    SSLIFY_DOMAIN = my-custom-domain.com
+
+
+
 Disabling SSLify
 ----------------
 
