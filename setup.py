@@ -1,6 +1,5 @@
 """Python packaging information."""
 
-
 from os.path import abspath, dirname, join, normpath
 
 from setuptools import setup
@@ -11,26 +10,26 @@ from sslify import __version__
 setup(
 
     # Basic package information:
-    name = 'django-sslify',
-    version = __version__,
+    name='django-sslify',
+    version=__version__,
 
-    packages = ['sslify'],
+    packages=['sslify'],
 
     # Packaging options:
-    zip_safe = False,
-    include_package_data = True,
+    zip_safe=False,
+    include_package_data=True,
 
     # Package dependencies:
-    install_requires = ['Django>=1.0'],
+    install_requires=['Django>=1.0'],
 
     # Metadata for PyPI:
-    author = 'Randall Degges',
-    author_email = 'r@rdegges.com',
-    license = 'UNLICENSE',
-    url = 'https://github.com/rdegges/django-sslify',
-    keywords = 'django ssl https middleware',
-    description = 'Force SSL on your Django site.',
-    classifiers = [
+    author='Randall Degges',
+    author_email='r@rdegges.com',
+    license='UNLICENSE',
+    url='https://github.com/rdegges/django-sslify',
+    keywords='django ssl https middleware',
+    description='Force SSL on your Django site.',
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -50,6 +49,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    long_description = open(normpath(join(dirname(abspath(__file__)), 'README.rst'))).read(),
-
+    long_description=open(normpath(join(dirname(abspath(__file__)), 'README.rst'))).read(),
 )
