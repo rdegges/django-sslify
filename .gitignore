@@ -10,3 +10,6 @@ docs/build
 
 # Ignore python cache files
 *.pyc
+
+# IDEs
+/.idea/
